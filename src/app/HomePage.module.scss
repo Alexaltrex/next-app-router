@@ -1,0 +1,7 @@
+@import "../assets/styles/app";
+
+.homePage {
+  .title {
+    @include h1;
+  }
+}

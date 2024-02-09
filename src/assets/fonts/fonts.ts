@@ -1,4 +1,5 @@
 import {Roboto, Montserrat} from "next/font/google";
+import localFont from 'next/font/local'
 
 export const roboto = Roboto({
     subsets: ["latin"],
@@ -17,3 +18,8 @@ export const montserrat = Montserrat({
         '600',
     ],
 });
+
+export const softMarshmallow = localFont({
+    src: "./SoftMarshmallow.otf",
+    display: "swap"
+})

@@ -1,0 +1,10 @@
+@import "@/assets/styles/app";
+
+.h2 {
+  color: $color_secondary_dark;
+  font-size: 24px;
+
+  @include desktop {
+    font-size: 36px;
+  }
+}

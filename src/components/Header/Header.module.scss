@@ -1,0 +1,43 @@
+@import "../../assets/styles/app";
+
+.header {
+  @include container;
+  height: 60px;
+  background-color: royalblue;
+
+  .inner {
+    @include inner;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .link {
+      color: #FFF;
+      font-weight: bold;
+      transition: 0.3s;
+
+      &:hover {
+        @include desktop {
+          color: lime;
+        }
+      }
+    }
+
+    .logo {
+      font-size: 18px;
+
+      @include desktop {
+        font-size: 24px;
+      }
+    }
+
+    .nav {
+      display: flex;
+
+      a:not(:first-child) {
+        margin-left: 16px;
+      }
+    }
+  }
+}

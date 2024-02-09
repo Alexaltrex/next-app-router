@@ -1,6 +1,11 @@
-.fonts {
-  padding: 24px;
+@import "../../assets/styles/app";
+
+.fontsPage {
   font-size: 24px;
+
+  .title {
+    @include h1;
+  }
 
   .texts {
     margin-top: 24px;

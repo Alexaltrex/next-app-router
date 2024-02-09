@@ -1,0 +1,20 @@
+@import "../assets/styles/app";
+
+.rootLayout {
+  background: #d7d7d7;
+
+  .main {
+    @include container;
+    padding-top: 32px;
+    padding-bottom: 32px;
+
+    @include desktop {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    .inner {
+      @include inner;
+    }
+  }
+}
