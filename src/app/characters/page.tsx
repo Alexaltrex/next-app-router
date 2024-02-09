@@ -12,7 +12,7 @@ const getCharacters = async (): Promise<IGetCharacters> => {
     try {
         const response = await fetch("https://rickandmortyapi.com/api/character", {
             next: {
-                revalidate: 3
+                revalidate: 1
             }
         });
         console.log("response.ok: ", response.ok);
@@ -36,6 +36,7 @@ const CharactersPage = async () => {
         <div className={style.charactersPage}>
             <H2 label="Characters"/>
             <p>{data.info.pages}</p>
+            <p>{(new Date()).toString()}</p>
         </div>
     )
 }
