@@ -14,10 +14,13 @@ export const Header = () => {
                 <nav className={style.nav}>
                     {
                         [
+                            {label: "Time-based Revalidation", href: "/timeBasedRevalidation"},
+                            // {label: "Counter", href: "/counter"},
                             {label: "Fonts", href: "/fonts"},
-                            {label: "Characters", href: "/characters"},
+                            // {label: "Characters", href: "/characters"},
                             {label: "Locations", href: "/locations"},
                             {label: "Episodes", href: "/episodes"},
+
                         ].map(({label, href}, key) => (
                             <Link key={key}
                                   href={href}

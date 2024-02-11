@@ -1,42 +1,42 @@
+"use client"
+
 import style from "./characters.module.scss";
 import {H2} from "@/components/H2/H2";
+import {ICharacter} from "@/types/character.types";
+import {useEffect, useState} from "react";
+import {getCharacters} from "@/api/api";
 
-import type { Metadata } from 'next'
-import {IGetCharacters} from "@/types/character.types";
+// export const metadata: Metadata = {
+//     title: 'Characters',
+// }
 
-export const metadata: Metadata = {
-    title: 'Characters',
-}
+const CharactersPage = () => {
+    //const data = await getCharacters();
+    const [characters, setCharacters] = useState<ICharacter[]>([])
 
-const getCharacters = async (): Promise<IGetCharacters> => {
-    try {
-        const response = await fetch("https://rickandmortyapi.com/api/character", {
-            next: {
-                revalidate: 1
+    useEffect(() => {
+        const getter = async () => {
+            try {
+                const data = await getCharacters();
+                setCharacters(data.results)
+            } catch (e) {
+                console.log(e)
             }
-        });
-        console.log("response.ok: ", response.ok);
-        if (!response.ok) {
-            throw new Error('Failed to fetch characters')
         }
-        const data = await response.json()
-        //console.log(data)
-        return data;
+        getter().then()
+    }, [])
 
-    } catch (e) {
-        throw e
-    }
-}
-
-
-const CharactersPage = async () => {
-    const data = await getCharacters();
 
     return (
         <div className={style.charactersPage}>
             <H2 label="Characters"/>
-            <p>{data.info.pages}</p>
-            <p>{(new Date()).toString()}</p>
+            <div>
+                {
+                    characters.map(r => (
+                        <p key={r.id}>{r.name}</p>
+                    ))
+                }
+            </div>
         </div>
     )
 }
